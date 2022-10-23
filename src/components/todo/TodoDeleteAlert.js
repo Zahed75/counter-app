@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
+import {RemoveTodo} from "../../redux/state/todo/todoSlice";
+import store from "../../redux/store/store";
 
-export function TodoDeleteAlert() {
+export function TodoDeleteAlert(i) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -14,7 +16,8 @@ export function TodoDeleteAlert() {
             Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
-                'success'
+                'success',
+                store.dispatch(RemoveTodo(i))
             )
         }
     })
