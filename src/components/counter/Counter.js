@@ -1,15 +1,21 @@
 import React from 'react';
+import {useSelector,useDispatch} from "react-redux";
+import {increment} from "../../redux/state/counter/counterSlice";
+
 
 const Counter = () => {
+    const  count= useSelector((state)=>state.counter.value);
+    const dispatch=useDispatch();
+
     return (
         <div className="card">
             <div className="card-header bg-secondary">
                 <h4 className="text-white">My Counter App</h4>
             </div>
             <div className="card-body">
-                <h1>00</h1>
+                <h1>{count}</h1>
                 <div className="my-4">
-                    <button className="btn btn-success">Increase</button>
+                    <button onClick={dispatch(increment())} className="btn btn-success">Increase</button>
                     <button className="btn mx-2 btn-danger">Decrease</button>
                 </div>
             </div>

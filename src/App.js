@@ -4,9 +4,7 @@ import CounterPage from "./pages/CounterPage";
 const App = () => {
     return (
         <div>
-            <CounterPage>
-
-            </CounterPage>
+            <CounterPage/>
         </div>
     );
 };
